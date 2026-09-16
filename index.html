@@ -1,0 +1,2171 @@
+<!DOCTYPE html>  <html lang="en" dir="ltr">  <head>  <!-- ==================================================  
+     EXTREME GYM  
+     ONE FILE WEBSITE  
+     HTML + CSS + JAVASCRIPT  
+================================================== -->  
+
+<meta charset="UTF-8">  
+
+<meta name="viewport"  
+      content="width=device-width, initial-scale=1.0">  
+
+<title>EXTREME GYM | Elite Fitness Club</title>  
+
+
+<style>  
+
+    /* ==================================================  
+       RESET  
+    ================================================== */  
+
+    * {  
+        margin: 0;  
+        padding: 0;  
+        box-sizing: border-box;  
+    }  
+
+    html {  
+        scroll-behavior: smooth;  
+    }  
+
+    body {  
+        font-family: Arial, Helvetica, sans-serif;  
+        background: #050505;  
+        color: #fff;  
+        overflow-x: hidden;  
+    }  
+
+    a {  
+        text-decoration: none;  
+        color: inherit;  
+    }  
+
+
+    /* ==================================================  
+       COLORS  
+    ================================================== */  
+
+    :root {  
+        --gold: #d4af37;  
+        --gold-light: #f4d878;  
+        --black: #050505;  
+        --card: #101010;  
+        --gray: #999;  
+    }  
+
+
+    /* ==================================================  
+       NAVBAR  
+    ================================================== */  
+
+    nav {  
+
+        position: fixed;  
+
+        top: 0;  
+        left: 0;  
+
+        width: 100%;  
+
+        padding: 18px 7%;  
+
+        display: flex;  
+
+        justify-content: space-between;  
+
+        align-items: center;  
+
+        background: rgba(5,5,5,0.88);  
+
+        backdrop-filter: blur(15px);  
+
+        border-bottom: 1px solid rgba(212,175,55,0.15);  
+
+        z-index: 1000;  
+    }  
+
+
+    /* LOGO */  
+
+    .logo {  
+
+        font-size: 24px;  
+
+        font-weight: 900;  
+
+        letter-spacing: 4px;  
+    }  
+
+    .logo span {  
+        color: var(--gold);  
+    }  
+
+    .logo small {  
+
+        display: block;  
+
+        font-size: 7px;  
+
+        letter-spacing: 5px;  
+
+        color: #777;  
+
+        margin-top: 5px;  
+    }  
+
+
+    /* NAVIGATION */  
+
+    .nav-right {  
+
+        display: flex;  
+
+        align-items: center;  
+
+        gap: 25px;  
+    }  
+
+
+    .nav-links {  
+
+        display: flex;  
+
+        gap: 25px;  
+
+        list-style: none;  
+    }  
+
+
+    .nav-links a {  
+
+        color: #bbb;  
+
+        font-size: 11px;  
+
+        letter-spacing: 1px;  
+
+        transition: 0.3s;  
+    }  
+
+
+    .nav-links a:hover {  
+
+        color: var(--gold);  
+    }  
+
+
+    /* LANGUAGE BUTTON */  
+
+    .language-btn {  
+
+        background: transparent;  
+
+        color: white;  
+
+        border: 1px solid var(--gold);  
+
+        padding: 9px 14px;  
+
+        border-radius: 3px;  
+
+        cursor: pointer;  
+
+        font-size: 11px;  
+
+        font-weight: bold;  
+
+        transition: 0.3s;  
+    }  
+
+
+    .language-btn:hover {  
+
+        background: var(--gold);  
+
+        color: #000;  
+    }  
+
+
+    /* ==================================================  
+       HERO  
+    ================================================== */  
+
+    .hero {  
+
+        min-height: 100vh;  
+
+        position: relative;  
+
+        display: flex;  
+
+        align-items: center;  
+
+        justify-content: center;  
+
+        text-align: center;  
+
+        padding: 120px 20px 70px;  
+
+        overflow: hidden;  
+
+        background:  
+
+            radial-gradient(  
+                circle at center,  
+                rgba(212,175,55,0.13),  
+                transparent 45%  
+            );  
+    }  
+
+
+    /* Decorative Circle */  
+
+    .hero::before {  
+
+        content: "";  
+
+        position: absolute;  
+
+        width: 480px;  
+
+        height: 480px;  
+
+        border: 1px solid rgba(212,175,55,0.16);  
+
+        border-radius: 50%;  
+
+        animation: rotate 20s linear infinite;  
+    }  
+
+
+    .hero::after {  
+
+        content: "";  
+
+        position: absolute;  
+
+        width: 680px;  
+
+        height: 680px;  
+
+        border: 1px solid rgba(212,175,55,0.06);  
+
+        border-radius: 50%;  
+
+        animation: rotateReverse 30s linear infinite;  
+    }  
+
+
+    .hero-content {  
+
+        position: relative;  
+
+        z-index: 2;  
+
+        max-width: 900px;  
+    }  
+
+
+    .hero-subtitle {  
+
+        color: var(--gold);  
+
+        font-size: 11px;  
+
+        letter-spacing: 7px;  
+
+        margin-bottom: 25px;  
+
+        text-transform: uppercase;  
+    }  
+
+
+    .hero h1 {  
+
+        font-size: clamp(55px, 11vw, 125px);  
+
+        line-height: 0.88;  
+
+        font-weight: 900;  
+
+        letter-spacing: -5px;  
+
+        text-transform: uppercase;  
+    }  
+
+
+    .hero h1 span {  
+
+        display: block;  
+
+        color: transparent;  
+
+        -webkit-text-stroke: 1px var(--gold);  
+    }  
+
+
+    .hero-text {  
+
+        max-width: 580px;  
+
+        margin: 35px auto;  
+
+        color: #999;  
+
+        line-height: 1.8;  
+
+        font-size: 15px;  
+    }  
+
+
+    .hero-btn {  
+
+        display: inline-flex;  
+
+        align-items: center;  
+
+        gap: 15px;  
+
+        padding: 16px 30px;  
+
+        background: var(--gold);  
+
+        color: #000;  
+
+        font-size: 11px;  
+
+        font-weight: bold;  
+
+        letter-spacing: 2px;  
+
+        border-radius: 2px;  
+
+        transition: 0.4s;  
+    }  
+
+
+    .hero-btn:hover {  
+
+        transform: translateY(-5px);  
+
+        box-shadow:  
+            0 15px 40px rgba(212,175,55,0.25);  
+    }  
+
+
+    /* ==================================================  
+       GENERAL SECTIONS  
+    ================================================== */  
+
+    section {  
+
+        padding: 110px 7%;  
+    }  
+
+
+    .section-label {  
+
+        color: var(--gold);  
+
+        font-size: 10px;  
+
+        letter-spacing: 5px;  
+
+        text-transform: uppercase;  
+
+        margin-bottom: 15px;  
+    }  
+
+
+    .section-title {  
+
+        font-size: clamp(35px, 6vw, 65px);  
+
+        line-height: 1;  
+
+        text-transform: uppercase;  
+
+        margin-bottom: 25px;  
+    }  
+
+
+    .section-title span {  
+
+        color: var(--gold);  
+    }  
+
+
+    .section-description {  
+
+        max-width: 600px;  
+
+        color: #888;  
+
+        line-height: 1.8;  
+
+        font-size: 14px;  
+
+        margin-bottom: 50px;  
+    }  
+
+
+    /* ==================================================  
+       ABOUT  
+    ================================================== */  
+
+    .about {  
+
+        background: #080808;  
+    }  
+
+
+    .about-grid {  
+
+        display: grid;  
+
+        grid-template-columns: 1.2fr 0.8fr;  
+
+        gap: 70px;  
+
+        align-items: center;  
+    }  
+
+
+    .about-box {  
+
+        border-left: 2px solid var(--gold);  
+
+        padding-left: 30px;  
+    }  
+
+
+    .about-box h3 {  
+
+        font-size: 28px;  
+
+        margin-bottom: 18px;  
+    }  
+
+
+    .about-box p {  
+
+        color: #999;  
+
+        line-height: 1.9;  
+
+        font-size: 14px;  
+    }  
+
+
+    /* ==================================================  
+       STATS  
+    ================================================== */  
+
+    .stats {  
+
+        display: grid;  
+
+        grid-template-columns: 1fr 1fr;  
+
+        gap: 15px;  
+    }  
+
+
+    .stat {  
+
+        padding: 30px;  
+
+        background: var(--card);  
+
+        border: 1px solid #222;  
+
+        transition: 0.4s;  
+    }  
+
+
+    .stat:hover {  
+
+        transform: translateY(-7px);  
+
+        border-color: var(--gold);  
+    }  
+
+
+    .stat strong {  
+
+        display: block;  
+
+        font-size: 32px;  
+
+        color: var(--gold);  
+
+        margin-bottom: 8px;  
+    }  
+
+
+    .stat span {  
+
+        color: #777;  
+
+        font-size: 10px;  
+
+        letter-spacing: 2px;  
+
+        text-transform: uppercase;  
+    }  
+
+
+    /* ==================================================  
+       GALLERY  
+    ================================================== */  
+
+    .gallery {  
+
+        background: #050505;  
+    }  
+
+
+    .gallery-grid {  
+
+        display: grid;  
+
+        grid-template-columns:  
+            1.2fr 0.8fr 1fr;  
+
+        grid-auto-rows: 230px;  
+
+        gap: 14px;  
+    }  
+
+
+    .gallery-item {  
+
+        position: relative;  
+
+        overflow: hidden;  
+
+        border-radius: 4px;  
+
+        background: #111;  
+
+        border: 1px solid #222;  
+
+        cursor: pointer;  
+
+        transition: 0.5s;  
+    }  
+
+
+    .gallery-item.big {  
+
+        grid-row: span 2;  
+    }  
+
+
+    .gallery-item.tall {  
+
+        grid-row: span 2;  
+    }  
+
+
+    .gallery-item.wide {  
+
+        grid-column: span 2;  
+    }  
+
+
+    .gallery-item img {  
+
+        width: 100%;  
+
+        height: 100%;  
+
+        object-fit: cover;  
+
+        display: block;  
+
+        transition: 0.7s;  
+    }  
+
+
+    .gallery-item::after {  
+
+        content: "VIEW";  
+
+        position: absolute;  
+
+        inset: 0;  
+
+        display: flex;  
+
+        align-items: center;  
+
+        justify-content: center;  
+
+        background: rgba(0,0,0,0.45);  
+
+        color: white;  
+
+        font-size: 10px;  
+
+        letter-spacing: 4px;  
+
+        opacity: 0;  
+
+        transition: 0.4s;  
+    }  
+
+
+    .gallery-item:hover {  
+
+        border-color: var(--gold);  
+
+        transform: translateY(-5px);  
+    }  
+
+
+    .gallery-item:hover img {  
+
+        transform: scale(1.08);  
+    }  
+
+
+    .gallery-item:hover::after {  
+
+        opacity: 1;  
+    }  
+
+
+    /* ==================================================  
+       TRAINERS  
+    ================================================== */  
+
+    .trainers {  
+
+        background: #080808;  
+    }  
+
+
+    .trainer-grid {  
+
+        display: grid;  
+
+        grid-template-columns:  
+            repeat(5, 1fr);  
+
+        gap: 15px;  
+    }  
+
+
+    .trainer-card {  
+
+        position: relative;  
+
+        overflow: hidden;  
+
+        background: #111;  
+
+        border: 1px solid #222;  
+
+        transition: 0.5s;  
+    }  
+
+
+    .trainer-card img {  
+
+        width: 100%;  
+
+        height: 350px;  
+
+        object-fit: cover;  
+
+        display: block;  
+
+        transition: 0.6s;  
+    }  
+
+
+    .trainer-info {  
+
+        position: absolute;  
+
+        bottom: 0;  
+
+        left: 0;  
+
+        width: 100%;  
+
+        padding: 20px;  
+
+        background:  
+            linear-gradient(  
+                transparent,  
+                rgba(0,0,0,0.95)  
+            );  
+    }  
+
+
+    .trainer-info h3 {  
+
+        font-size: 16px;  
+
+        margin-bottom: 5px;  
+    }  
+
+
+    .trainer-info p {  
+
+        color: var(--gold);  
+
+        font-size: 9px;  
+
+        letter-spacing: 2px;  
+    }  
+
+
+    .trainer-card:hover {  
+
+        transform: translateY(-8px);  
+
+        border-color: var(--gold);  
+    }  
+
+
+    .trainer-card:hover img {  
+
+        transform: scale(1.06);  
+    }  
+
+
+    /* ==================================================  
+       INFORMATION  
+    ================================================== */  
+
+    .information {  
+
+        background: #050505;  
+    }  
+
+
+    .info-grid {  
+
+        display: grid;  
+
+        grid-template-columns:  
+            repeat(3, 1fr);  
+
+        gap: 20px;  
+    }  
+
+
+    .info-card {  
+
+        padding: 35px 25px;  
+
+        background: #0d0d0d;  
+
+        border: 1px solid #222;  
+
+        transition: 0.4s;  
+    }  
+
+
+    .info-card:hover {  
+
+        border-color: var(--gold);  
+
+        transform: translateY(-7px);  
+    }  
+
+
+    .info-icon {  
+
+        font-size: 27px;  
+
+        margin-bottom: 20px;  
+    }  
+
+
+    .info-card h3 {  
+
+        color: var(--gold);  
+
+        font-size: 17px;  
+
+        margin-bottom: 15px;  
+    }  
+
+
+    .info-card p {  
+
+        color: #888;  
+
+        line-height: 1.8;  
+
+        font-size: 14px;  
+    }  
+
+
+    /* ==================================================  
+       CONTACT  
+    ================================================== */  
+
+    .contact {  
+
+        text-align: center;  
+
+        background:  
+            radial-gradient(  
+                circle at center,  
+                rgba(212,175,55,0.1),  
+                transparent 50%  
+            );  
+    }  
+
+
+    .contact-content {  
+
+        max-width: 750px;  
+
+        margin: auto;  
+    }  
+
+
+    .contact-content h2 {  
+
+        font-size: clamp(40px, 7vw, 75px);  
+
+        margin-bottom: 25px;  
+    }  
+
+
+    .contact-content h2 span {  
+
+        color: var(--gold);  
+    }  
+
+
+    .contact-content p {  
+
+        color: #888;  
+
+        line-height: 1.8;  
+
+        margin-bottom: 35px;  
+    }  
+
+
+    .contact-buttons {  
+
+        display: flex;  
+
+        justify-content: center;  
+
+        flex-wrap: wrap;  
+
+        gap: 12px;  
+    }  
+
+
+    .contact-btn {  
+
+        padding: 15px 25px;  
+
+        border: 1px solid #333;  
+
+        color: #ddd;  
+
+        font-size: 11px;  
+
+        letter-spacing: 1px;  
+
+        transition: 0.3s;  
+    }  
+
+
+    .contact-btn:hover {  
+
+        border-color: var(--gold);  
+
+        color: var(--gold);  
+    }  
+
+
+    /* ==================================================  
+       FOOTER  
+    ================================================== */  
+
+    footer {  
+
+        padding: 30px 7%;  
+
+        border-top: 1px solid #1b1b1b;  
+
+        text-align: center;  
+
+        color: #555;  
+
+        font-size: 10px;  
+
+        letter-spacing: 2px;  
+    }  
+
+
+    footer span {  
+
+        color: var(--gold);  
+    }  
+
+
+    /* ==================================================  
+       LIGHTBOX  
+    ================================================== */  
+
+    .lightbox {  
+
+        position: fixed;  
+
+        inset: 0;  
+
+        background: rgba(0,0,0,0.95);  
+
+        display: none;  
+
+        align-items: center;  
+
+        justify-content: center;  
+
+        z-index: 2000;  
+
+        padding: 20px;  
+    }  
+
+
+    .lightbox.active {  
+
+        display: flex;  
+    }  
+
+
+    .lightbox img {  
+
+        max-width: 95%;  
+
+        max-height: 90vh;  
+
+        object-fit: contain;  
+
+        border: 1px solid var(--gold);  
+    }  
+
+
+    .close-lightbox {  
+
+        position: absolute;  
+
+        top: 20px;  
+
+        right: 30px;  
+
+        color: white;  
+
+        font-size: 38px;  
+
+        cursor: pointer;  
+    }  
+
+
+    /* ==================================================  
+       RTL - ARABIC  
+    ================================================== */  
+
+    html[dir="rtl"] body {  
+
+        font-family: Arial, Tahoma, sans-serif;  
+    }  
+
+
+    html[dir="rtl"] .about-box {  
+
+        border-left: none;  
+
+        border-right: 2px solid var(--gold);  
+
+        padding-left: 0;  
+
+        padding-right: 30px;  
+    }  
+
+
+    html[dir="rtl"] .hero-subtitle,  
+    html[dir="rtl"] .section-label {  
+
+        letter-spacing: 2px;  
+    }  
+
+
+    /* ==================================================  
+       ANIMATIONS  
+    ================================================== */  
+
+    @keyframes rotate {  
+
+        from {  
+            transform: rotate(0deg);  
+        }  
+
+        to {  
+            transform: rotate(360deg);  
+        }  
+    }  
+
+
+    @keyframes rotateReverse {  
+
+        from {  
+            transform: rotate(360deg);  
+        }  
+
+        to {  
+            transform: rotate(0deg);  
+        }  
+    }  
+
+
+    /* ==================================================  
+       MOBILE  
+    ================================================== */  
+
+    @media (max-width: 900px) {  
+
+        .nav-links {  
+
+            display: none;  
+        }  
+
+
+        .about-grid {  
+
+            grid-template-columns: 1fr;  
+
+            gap: 40px;  
+        }  
+
+
+        .trainer-grid {  
+
+            grid-template-columns:  
+                repeat(2, 1fr);  
+        }  
+
+
+        .info-grid {  
+
+            grid-template-columns: 1fr;  
+        }  
+
+    }  
+
+
+    @media (max-width: 600px) {  
+
+        nav {  
+
+            padding: 16px 5%;  
+        }  
+
+
+        .logo {  
+
+            font-size: 19px;  
+        }  
+
+
+        section {  
+
+            padding: 80px 5%;  
+        }  
+
+
+        .gallery-grid {  
+
+            grid-template-columns: 1fr 1fr;  
+
+            grid-auto-rows: 170px;  
+
+            gap: 8px;  
+        }  
+
+
+        .trainer-grid {  
+
+            grid-template-columns: 1fr 1fr;  
+
+            gap: 10px;  
+        }  
+
+
+        .trainer-card img {  
+
+            height: 260px;  
+        }  
+
+
+        .hero h1 {  
+
+            letter-spacing: -3px;  
+        }  
+
+    }  
+
+</style>
+
+</head>  <body>  <!-- ==================================================  
+     NAVBAR  
+================================================== -->  <nav>  <a href="#" class="logo">  
+
+    EXTREME <span>GYM</span>  
+
+    <small>  
+        ELITE FITNESS CLUB  
+    </small>  
+
+</a>  
+
+
+<div class="nav-right">  
+
+    <ul class="nav-links">  
+
+        <li>  
+            <a href="#about" data-key="navAbout">  
+                ABOUT  
+            </a>  
+        </li>  
+
+        <li>  
+            <a href="#gallery" data-key="navGallery">  
+                GALLERY  
+            </a>  
+        </li>  
+
+        <li>  
+            <a href="#trainers" data-key="navTrainers">  
+                TRAINERS  
+            </a>  
+        </li>  
+
+        <li>  
+            <a href="#info" data-key="navInfo">  
+                INFO  
+            </a>  
+        </li>  
+
+        <li>  
+            <a href="#contact" data-key="navContact">  
+                CONTACT  
+            </a>  
+        </li>  
+
+    </ul>  
+
+
+    <button  
+        class="language-btn"  
+        id="languageBtn">  
+
+        عربي 🇪🇬  
+
+    </button>  
+
+</div>
+
+</nav>  <!-- ==================================================  
+     HERO  
+================================================== -->  <section class="hero">  <div class="hero-content">  
+
+    <div  
+        class="hero-subtitle"  
+        data-key="heroSubtitle">  
+
+        ELITE FITNESS CLUB  
+
+    </div>  
+
+
+    <h1>  
+
+        EXTREME  
+
+        <span>GYM</span>  
+
+    </h1>  
+
+
+    <p  
+        class="hero-text"  
+        data-key="heroText">  
+
+        Push your limits.  
+        Build your strength.  
+        Become the strongest version of yourself.  
+
+    </p>  
+
+
+    <a  
+        href="#contact"  
+        class="hero-btn"  
+        data-key="heroButton">  
+
+        JOIN EXTREME  
+        <span>→</span>  
+
+    </a>  
+
+</div>
+
+</section>  <!-- ==================================================  
+     ABOUT  
+================================================== -->  <section  
+    class="about"  
+    id="about">  <div class="about-grid">  
+
+
+    <div>  
+
+        <div  
+            class="section-label"  
+            data-key="aboutLabel">  
+
+            WHO WE ARE  
+
+        </div>  
+
+
+        <h2 class="section-title">  
+
+            TRAIN  
+
+            <span data-key="aboutTitle">  
+                EXTREME.  
+            </span>  
+
+        </h2>  
+
+
+        <p  
+            class="section-description"  
+            data-key="aboutDescription">  
+
+            Welcome to Extreme Gym.  
+            A place designed for people who  
+            refuse to settle for ordinary.  
+
+        </p>  
+
+
+        <div class="about-box">  
+
+            <h3 data-key="aboutBoxTitle">  
+
+                Your Limits Are Not Your Limits.  
+
+            </h3>  
+
+
+            <p data-key="aboutBoxText">  
+
+                Train harder, become stronger  
+                and create the body and mindset  
+                you have always wanted.  
+
+            </p>  
+
+        </div>  
+
+    </div>  
+
+
+    <div class="stats">  
+
+
+        <div class="stat">  
+
+            <strong>11+</strong>  
+
+            <span data-key="stat1">  
+                GYM AREAS  
+            </span>  
+
+        </div>  
+
+
+        <div class="stat">  
+
+            <strong>5</strong>  
+
+            <span data-key="stat2">  
+                EXPERT TRAINERS  
+            </span>  
+
+        </div>  
+
+
+        <div class="stat">  
+
+            <strong>∞</strong>  
+
+            <span data-key="stat3">  
+                YOUR POTENTIAL  
+            </span>  
+
+        </div>  
+
+
+        <div class="stat">  
+
+            <strong>100%</strong>  
+
+            <span data-key="stat4">  
+                EXTREME ENERGY  
+            </span>  
+
+        </div>  
+
+
+    </div>  
+
+</div>
+
+</section>  <!-- ==================================================  
+     GALLERY  
+================================================== -->  <section  
+    class="gallery"  
+    id="gallery">  <div  
+    class="section-label"  
+    data-key="galleryLabel">  
+
+    INSIDE EXTREME  
+
+</div>  
+
+
+<h2 class="section-title">  
+
+    OUR  
+
+    <span data-key="galleryTitle">  
+        SPACE.  
+    </span>  
+
+</h2>  
+
+
+<p  
+    class="section-description"  
+    data-key="galleryDescription">  
+
+    Step inside Extreme Gym and  
+    experience the atmosphere.  
+
+</p>  
+
+
+<div class="gallery-grid">  
+
+
+    <div class="gallery-item big">  
+        <img  
+            src=images/gym1.jpg 
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item">  
+        <img  
+            src="images/gym2.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item tall">  
+        <img  
+            src="images/gym3.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item">  
+        <img  
+            src="images/gym4.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item">  
+        <img  
+            src="images/gym5.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item wide">  
+        <img  
+            src="images/gym6.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item">  
+        <img  
+            src="images/gym7.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item tall">  
+        <img  
+            src="images/gym8.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item">  
+        <img  
+            src="images/gym9.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item">  
+        <img  
+            src="images/gym10.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+    <div class="gallery-item wide">  
+        <img  
+            src="images/gym11.jpg"  
+            alt="Extreme Gym">  
+    </div>  
+
+
+</div>
+
+</section>  <!-- ==================================================  
+     TRAINERS  
+================================================== -->  <section  
+    class="trainers"  
+    id="trainers">  <div  
+    class="section-label"  
+    data-key="trainersLabel">  
+
+    OUR TEAM  
+
+</div>  
+
+
+<h2 class="section-title">  
+
+    MEET OUR  
+
+    <span data-key="trainersTitle">  
+        TRAINERS.  
+    </span>  
+
+</h2>  
+
+
+<p  
+    class="section-description"  
+    data-key="trainersDescription">  
+
+    Professional trainers ready to help  
+    you reach your goals.  
+
+</p>  
+
+
+<div class="trainer-grid">  
+
+
+    <div class="trainer-card">  
+
+        <img  
+            src="images/trainer1.jpg"  
+            alt="Trainer">  
+
+        <div class="trainer-info">  
+
+            <h3>  
+                TRAINER 01  
+            </h3>  
+
+            <p data-key="coach">  
+                FITNESS COACH  
+            </p>  
+
+        </div>  
+
+    </div>  
+
+
+    <div class="trainer-card">  
+
+        <img  
+            src="images/trainer2.jpg"  
+            alt="Trainer">  
+
+        <div class="trainer-info">  
+
+            <h3>  
+                TRAINER 02  
+            </h3>  
+
+            <p data-key="coach">  
+                FITNESS COACH  
+            </p>  
+
+        </div>  
+
+    </div>  
+
+
+    <div class="trainer-card">  
+
+        <img  
+            src="images/trainer3.jpg"  
+            alt="Trainer">  
+
+        <div class="trainer-info">  
+
+            <h3>  
+                TRAINER 03  
+            </h3>  
+
+            <p data-key="coach">  
+                FITNESS COACH  
+            </p>  
+
+        </div>  
+
+    </div>  
+
+
+    <div class="trainer-card">  
+
+        <img  
+            src="images/trainer4.jpg"  
+            alt="Trainer">  
+
+        <div class="trainer-info">  
+
+            <h3>  
+                TRAINER 04  
+            </h3>  
+
+            <p data-key="coach">  
+                FITNESS COACH  
+            </p>  
+
+        </div>  
+
+    </div>  
+
+
+    <div class="trainer-card">  
+
+        <img  
+            src="images/trainer5.jpg"  
+            alt="Trainer">  
+
+        <div class="trainer-info">  
+
+            <h3>  
+                TRAINER 05  
+            </h3>  
+
+            <p data-key="coach">  
+                FITNESS COACH  
+            </p>  
+
+        </div>  
+
+    </div>  
+
+
+</div>
+
+</section>  <!-- ==================================================  
+     INFORMATION  
+================================================== -->  <section  
+    class="information"  
+    id="info">  <div  
+    class="section-label"  
+    data-key="infoLabel">  
+
+    VISIT US  
+
+</div>  
+
+
+<h2 class="section-title">  
+
+    EXTREME  
+
+    <span data-key="infoTitle">  
+        INFO.  
+    </span>  
+
+</h2>  
+
+
+<div class="info-grid">  
+
+
+    <!-- LOCATION -->  
+
+    <div class="info-card">  
+
+        <div class="info-icon">  
+            📍  
+        </div>  
+
+        <h3 data-key="locationTitle">  
+            LOCATION  
+        </h3>  
+
+        <p data-key="locationText">  
+
+            Giza – El Haram<br>  
+            Nasr El Din Street  
+
+        </p>  
+
+    </div>  
+
+
+    <!-- OPENING HOURS -->  
+
+    <div class="info-card">  
+
+        <div class="info-icon">  
+            ⏰  
+        </div>  
+
+        <h3 data-key="hoursTitle">  
+            OPENING HOURS  
+        </h3>  
+
+        <p data-key="hoursText">  
+
+            Every Day<br>  
+            8:00 AM – 11:00 PM  
+
+        </p>  
+
+    </div>  
+
+
+    <!-- MEN -->  
+
+    <div class="info-card">  
+
+        <div class="info-icon">  
+            🏋️  
+        </div>  
+
+        <h3 data-key="menTitle">  
+            MEN'S HOURS  
+        </h3>  
+
+        <p data-key="menText">  
+
+            Every Day<br>  
+            8:00 AM – 2:00 PM  
+
+        </p>  
+
+    </div>  
+
+
+</div>
+
+</section>  <!-- ==================================================  
+     CONTACT  
+================================================== -->  <section  
+    class="contact"  
+    id="contact">  <div class="contact-content">  
+
+
+    <div  
+        class="section-label"  
+        data-key="contactLabel">  
+
+        START YOUR JOURNEY  
+
+    </div>  
+
+
+    <h2>  
+
+        READY TO GO  
+
+        <span data-key="contactTitle">  
+            EXTREME?  
+        </span>  
+
+    </h2>  
+
+
+    <p data-key="contactText">  
+
+        Contact us today and take the  
+        first step toward becoming stronger.  
+
+    </p>  
+
+
+    <div class="contact-buttons">  
+
+
+        <a  
+            class="contact-btn"  
+            href="https://wa.me/201050051878"  
+            target="_blank"  
+            data-key="whatsapp1">  
+
+            WHATSAPP 01  
+
+        </a>  
+
+
+        <a  
+            class="contact-btn"  
+            href="https://wa.me/201023286633"  
+            target="_blank"  
+            data-key="whatsapp2">  
+
+            WHATSAPP 02  
+
+        </a>  
+
+
+        <a  
+            class="contact-btn"  
+            href="tel:01050051878"  
+            data-key="call">  
+
+            CALL US  
+
+        </a>  
+
+
+    </div>  
+
+</div>
+
+</section>  <!-- ==================================================  
+     FOOTER  
+================================================== -->  <footer>  EXTREME <span>GYM</span>  
+
+—  
+
+<span data-key="footer">  
+    ELITE FITNESS CLUB  
+</span>
+
+</footer>  <!-- ==================================================  
+     LIGHTBOX  
+================================================== -->  <div  
+    class="lightbox"  
+    id="lightbox">  <div  
+    class="close-lightbox"  
+    id="closeLightbox">  
+
+    ×  
+
+</div>  
+
+
+<img  
+    id="lightboxImage"  
+    src=""  
+    alt="Extreme Gym">
+
+</div>  <!-- ==================================================  
+     JAVASCRIPT  
+================================================== -->  <script>  
+  
+  
+/* ==================================================  
+   TRANSLATIONS  
+================================================== */  
+  
+const translations = {  
+  
+    en: {  
+  
+        navAbout: "ABOUT",  
+        navGallery: "GALLERY",  
+        navTrainers: "TRAINERS",  
+        navInfo: "INFO",  
+        navContact: "CONTACT",  
+  
+        heroSubtitle: "ELITE FITNESS CLUB",  
+  
+        heroText:  
+            "Push your limits. Build your strength. Become the strongest version of yourself.",  
+  
+        heroButton:  
+            'JOIN EXTREME <span>→</span>',  
+  
+        aboutLabel:  
+            "WHO WE ARE",  
+  
+        aboutTitle:  
+            "EXTREME.",  
+  
+        aboutDescription:  
+            "Welcome to Extreme Gym. A place designed for people who refuse to settle for ordinary.",  
+  
+        aboutBoxTitle:  
+            "Your Limits Are Not Your Limits.",  
+  
+        aboutBoxText:  
+            "Train harder, become stronger and create the body and mindset you have always wanted.",  
+  
+        stat1:  
+            "GYM AREAS",  
+  
+        stat2:  
+            "EXPERT TRAINERS",  
+  
+        stat3:  
+            "YOUR POTENTIAL",  
+  
+        stat4:  
+            "EXTREME ENERGY",  
+  
+        galleryLabel:  
+            "INSIDE EXTREME",  
+  
+        galleryTitle:  
+            "SPACE.",  
+  
+        galleryDescription:  
+            "Step inside Extreme Gym and experience the atmosphere.",  
+  
+        trainersLabel:  
+            "OUR TEAM",  
+  
+        trainersTitle:  
+            "TRAINERS.",  
+  
+        trainersDescription:  
+            "Professional trainers ready to help you reach your goals.",  
+  
+        coach:  
+            "FITNESS COACH",  
+  
+        infoLabel:  
+            "VISIT US",  
+  
+        infoTitle:  
+            "INFO.",  
+  
+        locationTitle:  
+            "LOCATION",  
+  
+        locationText:  
+            "Giza – El Haram<br>Nasr El Din Street",  
+  
+        hoursTitle:  
+            "OPENING HOURS",  
+  
+        hoursText:  
+            "Every Day<br>8:00 AM – 11:00 PM",  
+  
+        menTitle:  
+            "MEN'S HOURS",  
+  
+        menText:  
+            "Every Day<br>8:00 AM – 2:00 PM",  
+  
+        contactLabel:  
+            "START YOUR JOURNEY",  
+  
+        contactTitle:  
+            "EXTREME?",  
+  
+        contactText:  
+            "Contact us today and take the first step toward becoming stronger.",  
+  
+        whatsapp1:  
+            "WHATSAPP 01",  
+  
+        whatsapp2:  
+            "WHATSAPP 02",  
+  
+        call:  
+            "CALL US",  
+  
+        footer:  
+            "ELITE FITNESS CLUB"  
+  
+    },  
+  
+  
+    ar: {  
+  
+        navAbout:  
+            "من نحن",  
+  
+        navGallery:  
+            "الصور",  
+  
+        navTrainers:  
+            "المدربين",  
+  
+        navInfo:  
+            "المعلومات",  
+  
+        navContact:  
+            "تواصل معنا",  
+  
+        heroSubtitle:  
+            "نادي اللياقة البدنية المميز",  
+  
+        heroText:  
+            "تحدى حدودك، ابنِ قوتك، وكن أقوى نسخة من نفسك.",  
+  
+        heroButton:  
+            'انضم إلى إكستريم <span>←</span>',  
+  
+        aboutLabel:  
+            "من نحن",  
+  
+        aboutTitle:  
+            "إكستريم.",  
+  
+        aboutDescription:  
+            "مرحبًا بك في إكستريم جيم، المكان المصمم لكل شخص لا يرضى بالمستوى العادي.",  
+  
+        aboutBoxTitle:  
+            "حدودك ليست هي حدودك.",  
+  
+        aboutBoxText:  
+            "تدرب بقوة أكبر، كن أقوى، وابنِ الجسم والعقلية التي طالما أردتهما.",  
+  
+        stat1:  
+            "مناطق الجيم",  
+  
+        stat2:  
+            "مدربين محترفين",  
+  
+        stat3:  
+            "إمكانياتك",  
+  
+        stat4:  
+            "طاقة إكستريم",  
+  
+        galleryLabel:  
+            "داخل إكستريم",  
+  
+        galleryTitle:  
+            "المكان.",  
+  
+        galleryDescription:  
+            "ادخل إلى إكستريم جيم وشاهد الأجواء بنفسك.",  
+  
+        trainersLabel:  
+            "فريقنا",  
+  
+        trainersTitle:  
+            "المدربين.",  
+  
+        trainersDescription:  
+            "مدربون محترفون مستعدون لمساعدتك في الوصول إلى أهدافك.",  
+  
+        coach:  
+            "مدرب لياقة بدنية",  
+  
+        infoLabel:  
+            "زورونا",  
+  
+        infoTitle:  
+            "المعلومات.",  
+  
+        locationTitle:  
+            "الموقع",  
+  
+        locationText:  
+            "الجيزة – الهرم<br>شارع نصر الدين",  
+  
+        hoursTitle:  
+            "مواعيد العمل",  
+  
+        hoursText:  
+            "كل يوم<br>من 8 صباحًا إلى 11 مساءً",  
+  
+        menTitle:  
+            "مواعيد الرجال",  
+  
+        menText:  
+            "كل يوم<br>من 8 صباحًا إلى 2 مساءً",  
+  
+        contactLabel:  
+            "ابدأ رحلتك",  
+  
+        contactTitle:  
+            "إكستريم؟",  
+  
+        contactText:  
+            "تواصل معنا اليوم وخد أول خطوة نحو قوة أفضل.",  
+  
+        whatsapp1:  
+            "واتساب 01",  
+  
+        whatsapp2:  
+            "واتساب 02",  
+  
+        call:  
+            "اتصل بنا",  
+  
+        footer:  
+            "نادي اللياقة البدنية المميز"  
+  
+    }  
+  
+};  
+  
+  
+/* ==================================================  
+   LANGUAGE SWITCH  
+================================================== */  
+  
+let currentLanguage = "en";  
+  
+const languageBtn =  
+    document.getElementById("languageBtn");  
+  
+  
+languageBtn.addEventListener(  
+    "click",  
+    function() {  
+  
+        currentLanguage =  
+            currentLanguage === "en"  
+            ? "ar"  
+            : "en";  
+  
+  
+        const language =  
+            translations[currentLanguage];  
+  
+  
+        document  
+            .querySelectorAll("[data-key]")  
+            .forEach(function(element) {  
+  
+                const key =  
+                    element.getAttribute("data-key");  
+  
+                if (language[key]) {  
+  
+                    element.innerHTML =  
+                        language[key];  
+  
+                }  
+  
+            });  
+  
+  
+        if (currentLanguage === "ar") {  
+  
+            document.documentElement.lang = "ar";  
+  
+            document.documentElement.dir = "rtl";  
+  
+            languageBtn.innerHTML =  
+                "English 🇬🇧";  
+  
+        } else {  
+  
+            document.documentElement.lang = "en";  
+  
+            document.documentElement.dir = "ltr";  
+  
+            languageBtn.innerHTML =  
+                "عربي 🇪🇬";  
+  
+        }  
+  
+    }  
+);  
+  
+  
+/* ==================================================  
+   GALLERY LIGHTBOX  
+================================================== */  
+  
+const galleryItems =  
+    document.querySelectorAll(".gallery-item");  
+  
+const lightbox =  
+    document.getElementById("lightbox");  
+  
+const lightboxImage =  
+    document.getElementById("lightboxImage");  
+  
+const closeLightbox =  
+    document.getElementById("closeLightbox");  
+  
+  
+galleryItems.forEach(function(item) {  
+  
+    item.addEventListener(  
+        "click",  
+        function() {  
+  
+            const image =  
+                item.querySelector("img");  
+  
+            lightboxImage.src =  
+                image.src;  
+  
+            lightbox.classList.add("active");  
+  
+        }  
+    );  
+  
+});  
+  
+  
+closeLightbox.addEventListener(  
+    "click",  
+    function() {  
+  
+        lightbox.classList.remove("active");  
+  
+    }  
+);  
+  
+  
+lightbox.addEventListener(  
+    "click",  
+    function(event) {  
+  
+        if (event.target === lightbox) {  
+  
+            lightbox.classList.remove("active");  
+  
+        }  
+  
+    }  
+);  
+  
+  
+</script>  </body>  </html>  
